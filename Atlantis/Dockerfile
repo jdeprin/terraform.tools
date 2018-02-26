@@ -8,7 +8,7 @@ ARG TF_VERSION = 0.11.3
 RUN ln -s /home/atlantis/mounts/.aws/credentials /home/atlantis/.aws/credentials
 
 ## Configure Global vars
-# AMIs - https://confluence.hmhco.com/display/TGIO/Linux+AMI+Standard
+# Custom AMIs I want to reference globally.
 ENV TF_VAR_AMI_AWSLINUX_V1-0-1 ami-123456
 ENV TF_VAR_AMI_CENTLINUX_V7-0-1 ami-246810
 
