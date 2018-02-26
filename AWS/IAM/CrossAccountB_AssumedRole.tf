@@ -1,11 +1,12 @@
 # Trusts
+# See https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html for possible conditions to increase security
 data "aws_iam_policy_document" "AccountB_TrustsDoc" {
   statement {
     actions = [
       "sts:AssumeRole"
     ]
     principals {
-      AWS = "AccountA_RoleARN"
+      AWS = "${aws_iam_role.AccountA_Role.arn}"
     }
   }
 }
