@@ -22,7 +22,7 @@ resource "aws_security_group_rule" "ingr_80_http" {
   protocol           = "tcp"
   description        = "80 - Default HTTP port"
   cidr_blocks        = ["0.0.0.0/0"]
-  security_group_id  = "${aws_security_group.intern_named.id}"
+  security_group_id  = "${aws_security_group.security_group_a.id}"
 }
 resource "aws_security_group_rule" "egr_allow_all" {
   type               = "egress"
@@ -67,8 +67,8 @@ resource "aws_instance" "ec2_instance_a" {
 # Define extra EBS volume independantly
 resource "aws_ebs_volume" "instance_a_device123" {
     availability_zone = "us-east-1a"
-    type = "gp2"
-    size = 40
+    type              = "gp2"
+    size              = 40
     tags {
       Name = "Instance A Device /dev/xvdb"
     }
