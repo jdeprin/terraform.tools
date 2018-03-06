@@ -9,7 +9,7 @@ ARG TF_VERSION=0.11.3
 
 # Configure symlinks
 # AWS
-RUN ln -s /home/atlantis/mounts/.aws/credentials /home/atlantis/.aws/credentials
+COPY .aws/credentials /home/atlantis/.aws/credentials
 
 ## Configure Global vars
 # Custom AMIs I want to reference globally.
