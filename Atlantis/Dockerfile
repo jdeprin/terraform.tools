@@ -32,11 +32,11 @@ RUN mkdir -p mkdir /usr/local/bin/tf/versions/0.10.8
 RUN wget --directory-prefix=/usr/local/bin/tf/versions/0.10.8/ https://releases.hashicorp.com/terraform/0.10.8/terraform_0.10.8_linux_amd64.zip
 RUN unzip -o /usr/local/bin/tf/versions/0.10.8/terraform_0.10.8_linux_amd64.zip -d /usr/local/bin/tf/versions/0.10.8/
 RUN rm -f /usr/local/bin/tf/versions/0.10.8/terraform_0.10.8_linux_amd64.zip
-RUN ln -s -f /usr/local/bin/tf/versions/0.10.8/terraform /usr/local/bin/terraform0.10.8
+RUN ln -sf /usr/local/bin/tf/versions/0.10.8/terraform /usr/local/bin/terraform0.10.8
 
 # 0.9.11
 RUN mkdir -p mkdir /usr/local/bin/tf/versions/0.9.11
 RUN wget --directory-prefix=/usr/local/bin/tf/versions/0.9.11/ https://releases.hashicorp.com/terraform/0.9.11/terraform_0.9.11_linux_amd64.zip
 RUN unzip -o /usr/local/bin/tf/versions/0.9.11/terraform_0.9.11_linux_amd64.zip -d /usr/local/bin/tf/versions/0.9.11/
 RUN rm -f /usr/local/bin/tf/versions/0.9.11/terraform_0.9.11_linux_amd64.zip
-RUN ln -s -f /usr/local/bin/tf/versions/0.9.11/terraform /usr/local/bin/terraform0.9.11
+RUN ln -sf /usr/local/bin/tf/versions/0.9.11/terraform /usr/local/bin/terraform0.9.11
