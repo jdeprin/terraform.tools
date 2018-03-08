@@ -1,4 +1,4 @@
-FROM hootsuite/atlantis
+FROM runatlantis/atlantis
 
 # Update & Required for the wgets
 RUN apk update && apk add ca-certificates && update-ca-certificates && apk add openssl
