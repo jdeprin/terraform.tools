@@ -79,3 +79,22 @@ resource "aws_volume_attachment" "instance_a_device123_attach" {
   volume_id   = "${aws_ebs_volume.instance_a_device123.id}"
   instance_id = "${aws_instance.ec2_instance_a.id}"
 }
+
+## Use Terraform Meta-parameters.
+# Depends on -- Set explicit dependencies, normally not required as Terraform determins dependencies based on interpolation however can be used in rare cases.
+# lifecycle -- customize lifecycle behavior of specific resources.
+
+# lifecycle to ignore a launch config which is created using CICD tools not Terraform.
+resource "aws_autoscaling_group" "my_asg" {
+  name                  = "my_great_asg"
+  launch_configuration  = "${var.lc_default}"
+  min_size              = "${var.min_size}"
+  max_size              = "${var.max_size}"
+  desired_capacity      = "${var.desired_capacity}"
+  vpc_zone_identifier   = ["${split(",",var.asg_subnets)}"]
+  health_check_type     = "${var.health_check_type}"
+
+  lifecycle {
+    ignore_changes = ["launch_configuration"]
+  }
+}
