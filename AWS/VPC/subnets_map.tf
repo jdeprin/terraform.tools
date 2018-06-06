@@ -5,7 +5,7 @@
 
 variable "vpc_id" {
   description = "The VPC ID to pull subnets from."
-  default     = "vpc-1491c67b"
+  default     = "vpc-1234abcd"
 }
 
 data "aws_subnet_ids" "vpc_subnet_ids" {
